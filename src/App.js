@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {postToken} from './requests/postToken';
+import {getClassCards} from './requests/getClassCards';
+import {ChooseMode} from './components/ChooseMode';
+import {ChooseClass} from './components/buildDeck/ChooseClass';
+import {CreateDeck} from './components/buildDeck/CreateDeck';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import axios from 'axios';
+import './resources/styles.scss';
+
 
 function App() {
+
+  if(localStorage.getItem('token') === null){
+    postToken();
+  }else{
+    axios.defaults.params = 
+        {
+            "access_token":localStorage.getItem('token')
+        }
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/' exact component={ChooseMode}/>
+        <Route path='/build_deck_mode/choose_class' exact component={ChooseClass}/>
+        <Route path='/build_deck/choose_class/create_deck' exact component={CreateDeck}/>
+      </Switch>
+    </Router>
   );
 }
 

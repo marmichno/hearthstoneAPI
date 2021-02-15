@@ -1,0 +1,117 @@
+.createDeckMainContainer{
+    width:100vw;
+    height:100vh;
+    background-image:url("https://images4.alphacoders.com/102/thumb-1920-1026146.jpg");
+    background-color:rgba(0, 0, 0, 0.767);
+    background-blend-mode:saturation;
+    @include flexCenter();
+    overflow-y:hidden;
+
+    .deckContainer{
+        width:15%;
+        height:100%;
+        text-align:center;
+        background-color:rgba(0, 0, 0, 0.322);
+        background-blend-mode:saturation;
+        overflow-y:scroll;
+
+        .portrait{
+            height:30%;
+            background-image:url("./images/warrior.jpg");
+            background-size:cover;
+            border-radius:0% 100% 0% 100% / 100% 0% 100% 0%   ;
+        }
+
+        div{
+            width:100%;
+            height:5%;
+            @include flexCenter();
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-color:rgba(0, 0, 0, 0.322);
+            background-blend-mode:saturation;
+            color:white;
+
+            div{
+                height:100%;
+                background-position:center;
+                background-size:cover;
+            }
+            div:nth-child(1){
+                background-image:url("https://static.hsreplay.net/static/images/mana_crystal.png");
+                width:15%;
+                background-blend-mode:normal;
+            }
+            div:nth-child(2){
+                width:80%;
+                letter-spacing:0.1rem;
+            }
+            div:nth-child(3){
+                width:5%;
+                opacity:0.8;
+            }
+        }
+    }
+
+    .cardsMainContainer{
+        width:85%;
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:space-evenly;
+        position:relative;
+
+        .arrows{
+            width:5%;
+            height:100%;
+        }
+
+        .left{
+            cursor:url('./images/left-arrow.png'), auto;
+        }
+
+        .right{
+            cursor:url('./images/right-arrow.png'), auto;
+            
+        }
+
+        .changeCards{
+            position:absolute;
+            left:0;
+            top:0;
+            background-color:green;
+            width:6%;
+            height:15%;
+            display:grid;
+            grid-template-rows: repeat(2, 1fr);
+
+            div{
+                @include flexCenter();
+            }
+        }
+
+        .cardsContainer{
+            width:90%;
+            height:100%;
+            display:grid;
+            grid-template-columns:repeat(4, 1fr);
+            grid-template-rows:repeat(2, 1fr);
+
+            div{
+                @include flexCenter();
+                margin:2rem;
+                background-position:center;
+                background-size:contain;
+                background-repeat:no-repeat;
+                cursor:pointer;
+                transform:scale(1);
+                transition:all ease-in-out 0.2s;
+
+                &:hover{
+                    transform:scale(1.1);
+                }
+            }
+        }
+    }
+}
