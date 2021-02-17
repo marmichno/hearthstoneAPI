@@ -1,4 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
+import {useEffect, useState} from 'react';
 import {removeCard} from '../../actions/index'
 import demonhunter from '../../resources/images/demonhunter.png';
 import druid from '../../resources/images/druid.jpg';
@@ -14,12 +15,24 @@ import warrior from '../../resources/images/warrior.jpg';
 export const Deck = ({classIndex}) => {
 
     const rarities = ['gray', '', 'blue', 'purple', 'yellow'];
+    const [numberOfCards, setNumberOfCards] = useState(0);
     const classesImages = 
     [demonhunter, druid, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior];
 
     const deck = useSelector(state => state.manageCardsReducer);
     const dispatch = useDispatch();
-    console.log(deck);
+
+    useEffect(() => {
+        if(deck.length !== 0){
+            setNumberOfCards( 
+                deck
+                .map(value => value.numberInDeck)
+                .reduce((a, b) => a + b)
+            )
+        }else{
+            setNumberOfCards(0);
+        }
+    },[deck])
 
     const deleteCard = (e) =>{
         const card = e.target.dataset.name;
@@ -31,11 +44,13 @@ export const Deck = ({classIndex}) => {
         <div className="deckContainer">
             <div 
             style = {{backgroundImage:`url(${classesImages[classIndex]})`}}
-            className="portrait"></div>
+            className="portrait">
+                <div><p>{numberOfCards} / 30</p></div>
+            </div>
            {
             deck.map(value =>{
                 let rarity = parseInt(value.rarity) - 1;
-                return <div style = {{backgroundImage: `url(${value.cropImage})`}}>
+                return <div className="builderCard" style = {{backgroundImage: `url(${value.cropImage})`}}>
                     <div><b>{value.manaCost}</b></div>
                     <div data-name={value.name} onClick={deleteCard}><p><b>{value.name}</b>{(value.numberInDeck === 1) ? '' : ' x2'}</p></div>
                     <div style = {{backgroundColor: `${rarities[rarity]}`}}></div>

@@ -17,15 +17,27 @@
 
         .portrait{
             height:30%;
+            width:100%;
             background-image:url("./images/warrior.jpg");
             background-size:cover;
             background-position:top;
             background-blend-mode:normal;
             border-bottom:1px solid;
             border-color:rgb(255,152,0);
+            @include flexCenter();
+            align-items:flex-end;
+            font-size:2rem;
+
+            div{
+                @include flexCenter();
+                width:100%;
+                height:20%;
+                color:white;
+                background-color:rgba(0, 0, 0, 0.722);
+            }
         }
 
-        div{
+        .builderCard{
             width:100%;
             height:5%;
             @include flexCenter();
@@ -40,6 +52,9 @@
                 height:100%;
                 background-position:center;
                 background-size:cover;
+                @include flexCenter();
+                background-color:rgba(0, 0, 0, 0.322);
+                background-blend-mode:saturation;
             }
             div:nth-child(1){
                 background-image:url("https://static.hsreplay.net/static/images/mana_crystal.png");
