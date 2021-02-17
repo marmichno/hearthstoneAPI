@@ -13,13 +13,16 @@
         text-align:center;
         background-color:rgba(0, 0, 0, 0.322);
         background-blend-mode:saturation;
-        overflow-y:scroll;
+        overflow-y:auto;
 
         .portrait{
             height:30%;
             background-image:url("./images/warrior.jpg");
             background-size:cover;
-            border-radius:0% 100% 0% 100% / 100% 0% 100% 0%   ;
+            background-position:top;
+            background-blend-mode:normal;
+            border-bottom:1px solid;
+            border-color:rgb(255,152,0);
         }
 
         div{
@@ -44,12 +47,11 @@
                 background-blend-mode:normal;
             }
             div:nth-child(2){
-                width:80%;
+                width:83.5%;
                 letter-spacing:0.1rem;
             }
             div:nth-child(3){
-                width:5%;
-                opacity:0.8;
+                width:1.5%;
             }
         }
     }
@@ -80,14 +82,21 @@
             position:absolute;
             left:0;
             top:0;
-            background-color:green;
             width:6%;
-            height:15%;
+            height:10%;
             display:grid;
             grid-template-rows: repeat(2, 1fr);
+            margin-top:2rem;
 
             div{
                 @include flexCenter();
+                background-size:contain;
+                background-repeat:no-repeat;
+                background-position:center;
+                width:100%;
+                height:80%;
+                margin-bottom:4rem;
+                cursor:pointer;
             }
         }
 

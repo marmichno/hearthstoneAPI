@@ -1,0 +1,25 @@
+.chooseClassMainContainer{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    grid-template-rows:repeat(2, 1fr);
+
+    div{
+        @include flexCenter();
+        background-size:cover;
+        background-position:center;
+        background-color:rgba(0, 0, 0, 0.822);
+        background-blend-mode:saturation;
+        cursor:pointer;
+
+        &:hover{
+            background-color:rgba(0, 0, 0, 0.322);
+        }
+
+        p{
+            font-size:2.5rem;
+            color:white;
+        }
+    }
+}

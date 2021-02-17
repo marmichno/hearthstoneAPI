@@ -1,9 +1,21 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {removeCard} from '../../actions/index'
+import demonhunter from '../../resources/images/demonhunter.png';
+import druid from '../../resources/images/druid.jpg';
+import hunter from '../../resources/images/hunter.jpg';
+import mage from '../../resources/images/mage.jpg';
+import paladin from '../../resources/images/paladin.jpg';
+import priest from '../../resources/images/priest.jpg';
+import rogue from '../../resources/images/rogue.jpg';
+import shaman from '../../resources/images/shaman.jpg';
+import warlock from '../../resources/images/warlock.jpg';
+import warrior from '../../resources/images/warrior.jpg';
 
-export const Deck = () => {
+export const Deck = ({classIndex}) => {
 
-    const rarities = ['gray', '', 'blue', 'purple', 'yellow']
+    const rarities = ['gray', '', 'blue', 'purple', 'yellow'];
+    const classesImages = 
+    [demonhunter, druid, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior];
 
     const deck = useSelector(state => state.manageCardsReducer);
     const dispatch = useDispatch();
@@ -11,14 +23,15 @@ export const Deck = () => {
 
     const deleteCard = (e) =>{
         const card = e.target.dataset.name;
-        console.log(card);
         dispatch(removeCard(card))
     }
 
     if(deck !== null){
     return(
         <div className="deckContainer">
-            <div className="portrait">Warrior</div>
+            <div 
+            style = {{backgroundImage:`url(${classesImages[classIndex]})`}}
+            className="portrait"></div>
            {
             deck.map(value =>{
                 let rarity = parseInt(value.rarity) - 1;

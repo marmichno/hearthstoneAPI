@@ -10,8 +10,12 @@ import './resources/styles.scss';
 
 function App() {
 
-  if(localStorage.getItem('token') === null){
+  if(localStorage.getItem('token') === null || localStorage.getItem('token_expire_date') === null || Date.now() > localStorage.getItem('token_expire_date')){
     postToken();
+    axios.defaults.params = 
+        {
+            "access_token":localStorage.getItem('token')
+        }
   }else{
     axios.defaults.params = 
         {

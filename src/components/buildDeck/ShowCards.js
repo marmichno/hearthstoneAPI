@@ -2,13 +2,27 @@ import {getClassCards} from '../../requests/getClassCards';
 import {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {addCard} from '../../actions';
+import demonhunter from '../../resources/images/demonhuntericon.png';
+import druid from '../../resources/images/druidicon.png';
+import hunter from '../../resources/images/huntericon.png';
+import mage from '../../resources/images/mageicon.png';
+import paladin from '../../resources/images/paladinicon.png';
+import priest from '../../resources/images/priesticon.png';
+import rogue from '../../resources/images/rogueicon.png';
+import shaman from '../../resources/images/shamanicon.png';
+import warlock from '../../resources/images/warlockicon.png';
+import warrior from '../../resources/images/warrioricon.png';
+import neutral from '../../resources/images/neutralicon.png';
 
-export const ShowCards = ({choosenClass}) => {
+export const ShowCards = ({choosenClass, classIndex}) => {
+
 
     const [cards, setCards] = useState(null);
     const [whichCards, setWhichCards] = useState(choosenClass);
     const [page, setPage] = useState(1);
     const dispatch = useDispatch();
+    const classesIconsImages = 
+    [demonhunter, druid, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior];
 
     const getCards = async () => {
         const response = await getClassCards(choosenClass.toLowerCase(), whichCards, page);
@@ -39,7 +53,7 @@ export const ShowCards = ({choosenClass}) => {
     }
 
     const changeCards = (e) => {
-        setWhichCards(e.target.innerText.toLowerCase());
+        setWhichCards(e.target.dataset.class.toLowerCase());
         setPage(1);
     }
 
@@ -79,8 +93,16 @@ export const ShowCards = ({choosenClass}) => {
 
                 <div data-direction="right" className="arrows right" onClick={changePage}></div>
                 <div className="changeCards">
-                    <div onClick={changeCards}>Neutral</div>
-                    <div onClick={changeCards}>{choosenClass}</div>
+                    <div onClick={changeCards}
+                    style = {{backgroundImage:`url(${neutral})`}}
+                    data-class = 'neutral'
+                    >
+                    </div>
+                    <div onClick={changeCards}
+                    style = {{backgroundImage:`url(${classesIconsImages[classIndex]})`}}
+                    data-class = {choosenClass}
+                    >
+                    </div>
                 </div>
             </div>
         )

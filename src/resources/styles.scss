@@ -1,2 +1,9 @@
 @import './mixins';
 @import './createDeck';
+@import './chooseClass';
+@import './chooseMode';
+
+*{
+    margin:0;
+    padding:0;
+}

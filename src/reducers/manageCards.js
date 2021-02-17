@@ -11,7 +11,7 @@ const manageCardsReducer = (state = localStorage.getItem('deck'), action) => {
 
             const amountOfCards = () =>{
 
-                if(state.length > 2){
+                if(state.length > 1){
                     const numberOfCards = state
                     .map(value => value.numberInDeck)
                     .reduce((a, b) => a + b);
@@ -61,6 +61,13 @@ const manageCardsReducer = (state = localStorage.getItem('deck'), action) => {
             if(checkIfCouldBeAdd() === true){
 
                 state.push(card);
+
+                if(state.length > 1){
+                    state = state.sort((a, b) => a.manaCost - b.manaCost);
+                }
+
+                console.log(state);
+
                 localStorage.setItem('deck', JSON.stringify(state));
                 return state;
 
