@@ -3,3 +3,59 @@
     align-items:center;
     justify-content:center;
 }
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+      @content;
+    }
+    @-moz-keyframes #{$animationName} {
+      @content;
+    }
+    @-o-keyframes #{$animationName} {
+      @content;
+    }
+    @keyframes #{$animationName} {
+      @content;
+    }
+  }
+  @mixin animate($name, $duration, $fillmode, $direction) {
+    -webkit-animation-duration: $duration;
+       -moz-animation-duration: $duration;
+         -o-animation-duration: $duration;
+            animation-duration: $duration;
+    -webkit-animation-fill-mode: $fillmode;
+       -moz-animation-fill-mode: $fillmode;
+         animation-fill-mode: $fillmode;
+            animation-fill-mode: $fillmode;
+    -webkit-animation-name: $name;
+       -moz-animation-name: $name;
+         -o-animation-name: $name;
+            animation-name: $name;
+    -webkit-animation-direction: $direction;
+       -moz-animation-direction: $direction;
+         -o-animation-direction: $direction;
+            animation-direction: $direction;
+  }
+
+  @include keyframes(openPack){
+      0%{
+          transform:scale(0.8);
+      }
+      10%{
+          transform:scale(0.7);
+      }
+      20%{
+        transform:scale(0.6);
+      }
+      30%{
+        opacity:1;  
+      }
+      100%{
+          transform:scale(2.3);
+          opacity:0;
+      }
+  }
+
+  @mixin openPack{
+      @include animate(openPack, 1.2s, forwards, normal);
+  }
