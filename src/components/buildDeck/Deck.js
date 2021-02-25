@@ -15,6 +15,7 @@ import warrior from '../../resources/images/warrior.jpg';
 export const Deck = ({classIndex}) => {
 
     const rarities = ['gray', '', 'blue', 'purple', 'yellow'];
+    const [showPopUp, setShowPopUp] = useState(false);
     const [numberOfCards, setNumberOfCards] = useState(0);
     const classesImages = 
     [demonhunter, druid, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior];
@@ -32,11 +33,16 @@ export const Deck = ({classIndex}) => {
         }else{
             setNumberOfCards(0);
         }
-    },[deck])
+    },[deck]);
 
     const deleteCard = (e) =>{
         const card = e.target.dataset.name;
         dispatch(removeCard(card))
+    }
+
+    const togglePopUp = () =>{
+        const containerPopUp = document.querySelector('.deckContainerPopUp');
+        containerPopUp.classList.toggle('popUpSlideFromLeft');
     }
 
     if(deck !== null){
@@ -45,14 +51,26 @@ export const Deck = ({classIndex}) => {
             <div 
             style = {{backgroundImage:`url(${classesImages[classIndex]})`}}
             className="portrait">
+                {numberOfCards === 30 ? <div className="displayPopup" onClick={togglePopUp}><button>Show deck statistics</button></div> : null}
                 <div><p>{numberOfCards} / 30</p></div>
             </div>
-           {
-            deck.map(value =>{
+
+            {showPopUp === true ? <div className="deckContainerPopUp">
+                <p>Your deck contains:</p>
+                <p>free cards:</p>
+                <p>commons:</p>
+                <p>rares:</p>
+                <p>epics:</p>
+                <p>legendaries:</p>
+                <p>dust cost:</p>
+            </div> : null}
+
+           {deck.map(value =>{
                 let rarity = parseInt(value.rarity) - 1;
-                return <div className="builderCard" style = {{backgroundImage: `url(${value.cropImage})`}}>
+                return <div key={value.name} className="builderCard" style = {{backgroundImage: `url(${value.cropImage})`}}>
+                    <div className="cardClicker" data-name={value.name} onClick={deleteCard}></div>
                     <div><b>{value.manaCost}</b></div>
-                    <div data-name={value.name} onClick={deleteCard}><p><b>{value.name}</b>{(value.numberInDeck === 1) ? '' : ' x2'}</p></div>
+                    <div><p><b>{value.name}</b>{(value.numberInDeck === 1) ? '' : ' x2'}</p></div>
                     <div style = {{backgroundColor: `${rarities[rarity]}`}}></div>
                 </div>
            })}

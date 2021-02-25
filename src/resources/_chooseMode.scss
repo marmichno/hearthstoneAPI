@@ -15,6 +15,7 @@
         flex-direction:column;
         text-align:center;
         padding:2rem;
+        @include fadeIn;
 
         .buttonsContainer{
             width:100%;
@@ -30,17 +31,7 @@
 
         a{
             button{
-                padding-top:1rem;
-                padding-bottom:1rem;
-                padding-left:2rem;
-                padding-right:2rem;
-                color:white;
-                background-color:transparent;
-                border:1px solid;
-                border-color:rgb(255,152,0);
-                font-size:1.1rem;
-                cursor:pointer;
-                transition:transform 0.1s ease-in;
+                @include button();
 
                 &:hover{
                   transform:scale(1.1);  

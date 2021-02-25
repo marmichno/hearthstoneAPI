@@ -4,6 +4,7 @@
     display:grid;
     grid-template-columns:repeat(5, 1fr);
     grid-template-rows:repeat(2, 1fr);
+    background-color:black;
 
     div{
         @include flexCenter();
@@ -12,6 +13,7 @@
         background-color:rgba(0, 0, 0, 0.822);
         background-blend-mode:saturation;
         cursor:pointer;
+        @include fadeIn;
 
         &:hover{
             background-color:rgba(0, 0, 0, 0.322);

@@ -1,0 +1,22 @@
+.pageLoader{
+    min-width:300px;
+    min-height:300px;
+    @include flexCenter();
+    flex-direction:column;
+
+    .pageLoaderIcon{
+        width:100%;
+        min-height:250px;
+        height:80%;
+        background-size:contain;
+        background-position:center;
+        background-repeat:no-repeat;
+        transform-style: preserve-3d;
+        @include infiniteRoll
+    }
+
+    p{
+        font-size:2rem;
+        color:white;
+    }
+}

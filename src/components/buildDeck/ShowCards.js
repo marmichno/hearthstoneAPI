@@ -13,6 +13,8 @@ import shaman from '../../resources/images/shamanicon.png';
 import warlock from '../../resources/images/warlockicon.png';
 import warrior from '../../resources/images/warrioricon.png';
 import neutral from '../../resources/images/neutralicon.png';
+import {LoadingPage} from '../common/LoadingPage';
+import {DeckStatsPopUp} from './DeckStatsPopUp';
 
 export const ShowCards = ({choosenClass, classIndex}) => {
 
@@ -25,8 +27,10 @@ export const ShowCards = ({choosenClass, classIndex}) => {
     [demonhunter, druid, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior];
 
     const getCards = async () => {
+        setCards(null);
         const response = await getClassCards(choosenClass.toLowerCase(), whichCards, page);
         setCards(response);
+        document.querySelector('.cardsContainer').classList.add('.cardsContainerFadeIn');
     }
 
     useEffect(() => {
@@ -70,11 +74,11 @@ export const ShowCards = ({choosenClass, classIndex}) => {
     }
 
 
-    if(cards !== null){
         return(
             <div className="cardsMainContainer">
                 <div data-direction="left" className="arrows left" onClick={changePage}></div>
 
+                {cards === null ? <LoadingPage></LoadingPage> :
                 <div className="cardsContainer">
                     {
                         cards.cards.map(value => {
@@ -90,8 +94,10 @@ export const ShowCards = ({choosenClass, classIndex}) => {
                         })
                     }
                 </div>
+                }
 
                 <div data-direction="right" className="arrows right" onClick={changePage}></div>
+
                 <div className="changeCards">
                     <div onClick={changeCards}
                     style = {{backgroundImage:`url(${neutral})`}}
@@ -104,9 +110,8 @@ export const ShowCards = ({choosenClass, classIndex}) => {
                     >
                     </div>
                 </div>
+
+                <DeckStatsPopUp/>
             </div>
         )
-    }else{
-        return null;
-    }
 }

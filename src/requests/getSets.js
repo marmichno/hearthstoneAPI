@@ -5,7 +5,7 @@ export const getSets = async () =>{
             const request = await axios.get(`https://us.api.blizzard.com/hearthstone/metadata/sets?locale=en_US&`);
             const response = await request;
             const sets = response.data.filter(value => {
-                if(value.type === "expansion" || value.name === "Classic"){
+                if(value.type === "expansion" && value.id !== 1525 || value.name === "Classic"){
                     return true;
                 }else{
                     return false;

@@ -18,6 +18,7 @@ import whispersOfTheOldGods from '../../resources/images/cardPacks/whispers-of-t
 import theGrandTournament from '../../resources/images/cardPacks/the-grand-tournament.png';
 import goblinsVsGnomes from '../../resources/images/cardPacks/goblins-vs-gnomes.png';
 import classic from '../../resources/images/cardPacks/classic.png';
+import {LoadingPage} from '../../components/common/LoadingPage';
 
 export const ChooseCardSet = () => {
 
@@ -76,6 +77,10 @@ export const ChooseCardSet = () => {
             </div>
         )
     }else{
-        return null;
+        return (
+            <div className="packExpansionMainContainer">
+                    <LoadingPage></LoadingPage>
+            </div>
+        )
     }
 }

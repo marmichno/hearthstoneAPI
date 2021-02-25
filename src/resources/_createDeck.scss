@@ -14,19 +14,58 @@
         background-color:rgba(0, 0, 0, 0.322);
         background-blend-mode:saturation;
         overflow-y:auto;
+        position:relative;
+        overflow-x:hidden;
+
+        .popUpSlideFromLeft{
+            transform:translateX(0%) !important;
+        }
+
+        .deckContainerPopUp{
+            position:absolute;
+            padding:1rem;
+            color:white;
+            transform:translateX(-100%);
+            transition:all 1s linear;
+            flex-direction:column;
+            width:100%;
+            background-color:rgba(0, 0, 0, 0.938);
+            background-blend-mode:saturation;
+            z-index:10;
+
+            p{
+                margin-bottom:1rem;
+            }
+        }
 
         .portrait{
             height:30%;
             width:100%;
-            background-image:url("./images/warrior.jpg");
             background-size:cover;
             background-position:top;
             background-blend-mode:normal;
             border-bottom:1px solid;
             border-color:rgb(255,152,0);
             @include flexCenter();
-            align-items:flex-end;
+            flex-direction:column;
+            justify-content:flex-end;
+            align-items:center;
             font-size:2rem;
+            z-index:2;
+
+            .fadeOut{
+                @include fadeOut;
+            }
+
+            .displayPopup{
+                padding-bottom:1rem;
+                padding-top:1rem;
+                @include fadeIn;
+
+                button{
+                    @include button();
+                }
+            }
 
             div{
                 @include flexCenter();
@@ -47,6 +86,17 @@
             background-color:rgba(0, 0, 0, 0.322);
             background-blend-mode:saturation;
             color:white;
+            position:relative;
+            @include slideFromBottom;
+
+            .cardClicker{
+                position:absolute;
+                opacity:0;
+                z-index:2;
+                width:100%;
+                height:100%;
+                cursor:pointer;
+            }
 
             div{
                 height:100%;
@@ -56,16 +106,16 @@
                 background-color:rgba(0, 0, 0, 0.322);
                 background-blend-mode:saturation;
             }
-            div:nth-child(1){
+            div:nth-child(2){
                 background-image:url("https://static.hsreplay.net/static/images/mana_crystal.png");
                 width:15%;
                 background-blend-mode:normal;
             }
-            div:nth-child(2){
+            div:nth-child(3){
                 width:83.5%;
                 letter-spacing:0.1rem;
             }
-            div:nth-child(3){
+            div:nth-child(4){
                 width:1.5%;
             }
         }
@@ -78,6 +128,22 @@
         align-items:center;
         justify-content:space-evenly;
         position:relative;
+
+        .deckDataPopUp{
+            position:absolute;
+            width:50%;
+            padding:2rem;
+            height:50%;
+            color:white;
+            background-color:rgba(0, 0, 0, 0.911);
+            @include flexCenter();
+            border:1px solid;
+            border-color:rgb(255,152,0);
+
+            p{
+                margin-bottom:0.6rem;
+            }
+        }
 
         .arrows{
             width:5%;
@@ -115,12 +181,15 @@
             }
         }
 
+
         .cardsContainer{
             width:90%;
             height:100%;
             display:grid;
             grid-template-columns:repeat(4, 1fr);
             grid-template-rows:repeat(2, 1fr);
+            transition: all 0.5s ease-in-out;
+            @include fadeIn;
 
             div{
                 @include flexCenter();
