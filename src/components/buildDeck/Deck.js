@@ -51,19 +51,8 @@ export const Deck = ({classIndex}) => {
             <div 
             style = {{backgroundImage:`url(${classesImages[classIndex]})`}}
             className="portrait">
-                {numberOfCards === 30 ? <div className="displayPopup" onClick={togglePopUp}><button>Show deck statistics</button></div> : null}
                 <div><p>{numberOfCards} / 30</p></div>
             </div>
-
-            {showPopUp === true ? <div className="deckContainerPopUp">
-                <p>Your deck contains:</p>
-                <p>free cards:</p>
-                <p>commons:</p>
-                <p>rares:</p>
-                <p>epics:</p>
-                <p>legendaries:</p>
-                <p>dust cost:</p>
-            </div> : null}
 
            {deck.map(value =>{
                 let rarity = parseInt(value.rarity) - 1;

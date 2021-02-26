@@ -17,27 +17,6 @@
         position:relative;
         overflow-x:hidden;
 
-        .popUpSlideFromLeft{
-            transform:translateX(0%) !important;
-        }
-
-        .deckContainerPopUp{
-            position:absolute;
-            padding:1rem;
-            color:white;
-            transform:translateX(-100%);
-            transition:all 1s linear;
-            flex-direction:column;
-            width:100%;
-            background-color:rgba(0, 0, 0, 0.938);
-            background-blend-mode:saturation;
-            z-index:10;
-
-            p{
-                margin-bottom:1rem;
-            }
-        }
-
         .portrait{
             height:30%;
             width:100%;
@@ -52,20 +31,6 @@
             align-items:center;
             font-size:2rem;
             z-index:2;
-
-            .fadeOut{
-                @include fadeOut;
-            }
-
-            .displayPopup{
-                padding-bottom:1rem;
-                padding-top:1rem;
-                @include fadeIn;
-
-                button{
-                    @include button();
-                }
-            }
 
             div{
                 @include flexCenter();
@@ -178,6 +143,10 @@
                 height:80%;
                 margin-bottom:4rem;
                 cursor:pointer;
+            }
+
+            div:nth-child(3){
+                background-image:url('./images/data.png')
             }
         }
 

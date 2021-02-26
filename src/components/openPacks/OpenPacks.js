@@ -36,10 +36,10 @@ export const OpenPacks = (state) => {
 
     const openFirstPack = (e) => {
         e.target.classList.add('openPack');
+        setFiveCards(randomCards(cards));
 
         setTimeout(() => {
             setShowPack(false);
-            setFiveCards(randomCards(cards));
         }, 1500)
     }
 
@@ -152,7 +152,7 @@ export const OpenPacks = (state) => {
                         <div className="cardContainer">
                             <div className="cardClicker" onClick={flipCard} data-index={index}></div>
                                 <div className="card">
-                                    {value.image === undefined ? null : <div className="back" style = {{backgroundImage: `url(${value.image})`}}></div>}
+                                    {value === undefined ? null : <div className="back" style = {{backgroundImage: `url(${value.image})`}}></div>}
                                     <div className="front" style = {{backgroundImage: `url(${classicCardBack.cardBacks[0].image})`}}></div>
                                 </div>
                         </div>

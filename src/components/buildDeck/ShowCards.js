@@ -23,6 +23,7 @@ export const ShowCards = ({choosenClass, classIndex}) => {
     const [whichCards, setWhichCards] = useState(choosenClass);
     const [page, setPage] = useState(1);
     const dispatch = useDispatch();
+    const [showBar, setShowBar] = useState(false);
     const classesIconsImages = 
     [demonhunter, druid, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior];
 
@@ -73,6 +74,10 @@ export const ShowCards = ({choosenClass, classIndex}) => {
         dispatch(addCard(card));
     }
 
+    const showStats = () => {
+        setShowBar(!showBar);
+    }
+
 
         return(
             <div className="cardsMainContainer">
@@ -109,9 +114,11 @@ export const ShowCards = ({choosenClass, classIndex}) => {
                     data-class = {choosenClass}
                     >
                     </div>
+                    <div onClick={showStats}>
+                    </div>
                 </div>
 
-                <DeckStatsPopUp/>
+                {showBar === true ? <DeckStatsPopUp/> : null}
             </div>
         )
 }

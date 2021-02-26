@@ -66,21 +66,6 @@ export const DeckStatsPopUp = () =>{
 
     return(
         <div className="deckDataPopUp">
-                {/* <h1>Deck data:</h1>
-                <p>free: {sortCardRarities(2)}</p>
-                <p>commons: {sortCardRarities(1)}</p>
-                <p>rares: {sortCardRarities(3)}</p>
-                <p>epics: {sortCardRarities(4)}</p>
-                <p>legendaries: {sortCardRarities(5)}</p>
-                <p>Crafting cost: {getDustCost()}</p> */}
-                                            {/* free: sortCardRarities(2),
-                            commons: sortCardRarities(1),
-                            rares: sortCardRarities(3),
-                            epics: sortCardRarities(4),
-                            legendaries: sortCardRarities(5), */}
-
-
-
                 <HorizontalBar 
                 data={{
                     labels: ['Free', 'Commons', 'Rares', 'Epics', 'Legendaries'],
