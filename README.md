@@ -1,5 +1,7 @@
 # Hearthstone API
 
+![paczki](https://user-images.githubusercontent.com/72525469/110540381-baf08f80-8126-11eb-886b-eb067fe6387e.gif)
+![dodawaniekart](https://user-images.githubusercontent.com/72525469/110540394-be841680-8126-11eb-9975-f283a3b6cae9.gif)
 
 ## About project
 
