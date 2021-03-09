@@ -1,6 +1,5 @@
 # Hearthstone API
 
-<div style="width:360px;max-width:100%;"><div style="height:0;padding-bottom:52.5%;position:relative;"><iframe width="360" height="189" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/51191n"></iframe></div><p><a href="https://imgflip.com/gif/51191n">via Imgflip</a></p></div>
 
 ## About project
 
@@ -18,6 +17,7 @@ I made this project using https://develop.battle.net/documentation/hearthstone/g
 - sass
 - redux - state managmnet
 - axios - handling request
+- chartJS - visualising data
 
 
 ## Installation
@@ -28,6 +28,7 @@ And run those comands in project directory:
 ```sh
 git clone https://github.com/marmichno/hearthstoneAPI.git
 npm install
+npm install --save react-chartjs-2 chart.js
 ```
 
 ## Available Scripts
