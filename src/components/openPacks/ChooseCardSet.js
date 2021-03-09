@@ -33,7 +33,6 @@ export const ChooseCardSet = () => {
     useEffect( async () => {
         const getSetsResponse = await getSets();
         setSets(getSetsResponse);
-        console.log(getSetsResponse);
     }, []);
 
     const choosePack = (e) => {

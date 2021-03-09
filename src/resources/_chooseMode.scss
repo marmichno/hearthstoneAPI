@@ -7,8 +7,12 @@
     background-size:cover;
     background-position:top;
     color:white;
-    background-color:rgba(0, 0, 0, 0.802);
+    background-color:rgba(0, 0, 0, 0.702);
     background-blend-mode:saturation;
+
+    @media screen and (max-width: $wl) {
+        font-size:1.5rem;
+    }
 
     .headerContainer{
         @include flexCenter();
@@ -16,6 +20,10 @@
         text-align:center;
         padding:2rem;
         @include fadeIn;
+
+        @media screen and (max-width: $wl) and (min-height: $hm) {
+            padding:0rem;
+        }
 
         .buttonsContainer{
             width:100%;
@@ -32,6 +40,10 @@
         a{
             button{
                 @include button();
+
+                @media screen and (max-width: $wl) and (min-height: $hm) {
+                    padding:0.8rem;
+                }
 
                 &:hover{
                   transform:scale(1.1);  

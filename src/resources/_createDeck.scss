@@ -5,7 +5,12 @@
     background-color:rgba(0, 0, 0, 0.767);
     background-blend-mode:saturation;
     @include flexCenter();
-    overflow-y:hidden;
+    min-width:300px;
+    min-height:350px;
+
+    @media screen and (max-width: $ws) and (min-height: $hm) {
+        flex-direction:column-reverse;
+    }
 
     .deckContainer{
         width:15%;
@@ -17,6 +22,15 @@
         position:relative;
         overflow-x:hidden;
 
+        @media screen and (max-width: $wl) {
+            width:20%;
+        }
+
+        @media screen and (max-width: $ws) and (min-height: $hm) {
+            height:35%;
+            width:60%;
+        }
+        
         .portrait{
             height:30%;
             width:100%;
@@ -31,6 +45,14 @@
             align-items:center;
             font-size:2rem;
             z-index:2;
+
+            @media screen and (max-width: $ws) and (min-height: $hm) {
+                height:50%;
+            }
+
+            @media screen and (max-width: $wl) {
+                font-size:1rem;
+            }
 
             div{
                 @include flexCenter();
@@ -53,6 +75,15 @@
             color:white;
             position:relative;
             @include slideFromBottom;
+
+            @media screen and (max-width: $ws) and (min-height: $hm) {
+                height:15% !important;
+            }
+
+            @media screen and (max-width: $wl) {
+                height:5.5%;
+                font-size:0.5rem;
+            }
 
             .cardClicker{
                 position:absolute;
@@ -94,6 +125,10 @@
         justify-content:space-evenly;
         position:relative;
 
+        @media screen and (max-width: $ws) and (min-height: $hm) {
+            width:100%;
+        }
+
         .deckDataPopUp{
             position:absolute;
             width:50%;
@@ -134,6 +169,16 @@
             grid-template-rows: repeat(2, 1fr);
             margin-top:2rem;
 
+            @media screen and (max-width: $ws) and (min-height: $hm) {
+                transform:translateY(-100%);
+                left:10px;
+                width:9% !important;
+            }
+
+            @media screen and (max-width: $wl) {
+                width:7%;
+            }
+
             div{
                 @include flexCenter();
                 background-size:contain;
@@ -143,10 +188,19 @@
                 height:80%;
                 margin-bottom:4rem;
                 cursor:pointer;
+
+                @media screen and (max-width: $wl) {
+                    height:90%;
+                    margin-bottom:2.5rem;
+                }
             }
 
             div:nth-child(3){
-                background-image:url('./images/data.png')
+                background-image:url('./images/data.png');
+
+                @media screen and (max-width: $ws) and (min-height: $hm) {
+                    display:none;
+                }
             }
         }
 
@@ -160,11 +214,20 @@
             transition: all 0.5s ease-in-out;
             @include fadeIn;
 
+            @media screen and (max-width: $ws) and (min-height: $hm) {
+                display:block;
+                overflow-y:auto;
+            }
+
+            @media screen and (max-width: $wl) {
+                width:85%;
+            }
+
             div{
                 @include flexCenter();
                 margin:2rem;
                 background-position:center;
-                background-size:cover;
+                background-size:contain;
                 background-repeat:no-repeat;
                 cursor:pointer;
                 transform:scale(1);
@@ -172,6 +235,20 @@
 
                 &:hover{
                     transform:scale(1.1);
+                }
+
+                @media screen and (max-width: $wl) {
+                    width:90%;
+                }
+
+                @media screen and (max-width: $ws) and (min-height: $hm) {
+                    margin:0rem;
+                    height:33%;
+                    width:100%;
+                }
+
+                @media screen and (max-height: $hm) {
+                    margin:0rem;
                 }
             }
         }

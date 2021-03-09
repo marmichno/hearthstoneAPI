@@ -1,3 +1,15 @@
+$ws: 500px;
+$wm: 900px;
+$wl: 1200px;
+$wel: 1500px;
+
+$hel: 900px;
+$hl: 700px;
+$hm: 600px;
+$hs: 400px;
+
+
+
 @mixin flexCenter{
     display:flex;
     align-items:center;

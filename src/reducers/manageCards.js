@@ -66,8 +66,6 @@ const manageCardsReducer = (state = localStorage.getItem('deck'), action) => {
                     state = state.sort((a, b) => a.manaCost - b.manaCost);
                 }
 
-                console.log(state);
-
                 localStorage.setItem('deck', JSON.stringify(state));
                 return state;
 
@@ -87,7 +85,6 @@ const manageCardsReducer = (state = localStorage.getItem('deck'), action) => {
 
         case 'REMOVECARD':
             const cardFromDeck = action.payload;
-            console.log(cardFromDeck);
             state = JSON.parse(localStorage.getItem('deck'));
 
             state = state.map(value => {

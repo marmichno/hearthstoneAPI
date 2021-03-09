@@ -6,6 +6,10 @@ export const randomCards = (cards) => {
     // 4 - epic 4%
     // 5 - legendary 1%
 
+    if(cards === undefined){
+        return undefined;
+    }
+
     let randomRarities = [];
 
     for(let i = 0; i < 5; i++){
@@ -33,7 +37,11 @@ export const randomCards = (cards) => {
             }
         })
 
-        const randomCard = Math.round(Math.random() * rarityCards.length);
+        let randomCard = Math.round(Math.random() * rarityCards.length - 1);
+
+        if(randomCard < 0){
+            randomCard = 0;
+        }
 
         return rarityCards[randomCard];
     });
