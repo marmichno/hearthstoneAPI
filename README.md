@@ -17,7 +17,7 @@ open packs with five random cards. There are also some statistics about how much
 you get from each opened pack. 
 Chances for each card is based on statistics from: https://hearthstone.gamepedia.com/Card_pack_statistics
 <br>
-I made this project using https://develop.battle.net/documentation/hearthstone/game-data-apis
+I made this project using: https://develop.battle.net/documentation/hearthstone/game-data-apis
 
 ## Tech
 
