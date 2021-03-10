@@ -14,7 +14,8 @@ App contains two modes - building deck, opening packs. In building deck mode you
 create deck containing 30 cards and view statistics about cost of creating it.
 In open packs mode first you need to choose expansion with collectible cards then you may
 open packs with five random cards. There are also some statistics about how much dust did
-you get from each opened pack. 
+you get from each opened pack.
+<br> 
 Chances for each card is based on statistics from: https://hearthstone.gamepedia.com/Card_pack_statistics
 <br>
 I made this project using: https://develop.battle.net/documentation/hearthstone/game-data-apis
