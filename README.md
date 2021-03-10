@@ -26,6 +26,7 @@ I made this project using: https://develop.battle.net/documentation/hearthstone/
 - redux - state managmnet
 - axios - handling request
 - chartJS - visualising data
+- react router -  declarative routing
 
 
 ## Installation
