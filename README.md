@@ -1,6 +1,45 @@
-# Getting Started with Create React App
+# Hearthstone API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Opening packs:
+<br>
+![paczki](https://user-images.githubusercontent.com/72525469/110540381-baf08f80-8126-11eb-886b-eb067fe6387e.gif)
+<br>
+Creating deck:
+<br>
+![dodawaniekart](https://user-images.githubusercontent.com/72525469/110540394-be841680-8126-11eb-9975-f283a3b6cae9.gif)
+
+## About project
+
+App contains two modes - building deck, opening packs. In building deck mode you can choose class,
+create deck containing 30 cards and view statistics about cost of creating it.
+In open packs mode first you need to choose expansion with collectible cards then you may
+open packs with five random cards. There are also some statistics about how much dust did
+you get from each opened pack.
+<br> 
+Chances for each card is based on statistics from: https://hearthstone.gamepedia.com/Card_pack_statistics
+<br>
+I made this project using: https://develop.battle.net/documentation/hearthstone/game-data-apis
+
+## Tech
+
+- react
+- sass
+- redux - state managmnet
+- axios - handling request
+- chartJS - visualising data
+- react router -  declarative routing
+
+
+## Installation
+
+Download and install npm from https://www.npmjs.com/get-npm
+
+And run those comands in project directory:
+```sh
+git clone https://github.com/marmichno/hearthstoneAPI.git
+npm install
+npm install --save react-chartjs-2 chart.js
+```
 
 ## Available Scripts
 
@@ -23,48 +62,3 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
