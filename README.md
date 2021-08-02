@@ -19,6 +19,7 @@ you get from each opened pack.
 Chances for each card is based on statistics from: https://hearthstone.gamepedia.com/Card_pack_statistics
 <br>
 I made this project using: https://develop.battle.net/documentation/hearthstone/game-data-apis
+<br>
 App live: https://hearthstone-api-app.herokuapp.com/
 
 ## Tech
